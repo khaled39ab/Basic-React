@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+
+.greeting{
+  color: cadetblue;
+  background-color: rgb(247, 203, 187);
+  border: 3px solid purple;
+  border-radius: 20px;
+}
