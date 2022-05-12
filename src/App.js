@@ -17,6 +17,12 @@ function App() {
       <ExternalCss></ExternalCss>
       <InternalCss></InternalCss>
       <InlineCss></InlineCss>
+      <p style={{color:'red', fontSize:'26px'}}>-------------------------------------------------------------</p>
+      <h1><span style={{color:'red'}}>=======</span>  Repeat component  <span style={{color:'red'}}>=======</span></h1>
+      <p style={{color:'red', fontSize:'26px'}}>-------------------------------------------------------------</p>
+      <ExternalCss></ExternalCss>
+      <InternalCss></InternalCss>
+      <InlineCss></InlineCss>
     </div>
   );
 }
