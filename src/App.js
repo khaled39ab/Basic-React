@@ -13,7 +13,8 @@ const internal = {
 function App() {
   return (
     <div className="App">
-      <h1>Basic React</h1>
+      <h1 style={{color:'purple', fontSize:'34px'}}>Basic React</h1>
+      <h1 style={{backgroundColor:'red'}}>-</h1>
       <ExternalCss></ExternalCss>
       <InternalCss></InternalCss>
       <InlineCss></InlineCss>
@@ -23,6 +24,16 @@ function App() {
       <ExternalCss></ExternalCss>
       <InternalCss></InternalCss>
       <InlineCss></InlineCss>
+
+      <h1 style={{backgroundColor:'red'}}>-</h1>
+
+      <h1 style={{color:'purple', fontSize:'34px'}}>Dynamic data to components</h1>
+
+      <Person name="Amit Hasan" phone= "0177777"></Person>
+      <Person name="Rajib Hasan" phone= "0188888"></Person>
+      <Person name="Rabbil Hasan" phone= "0199999"></Person>
+      <Person name="Sadik Hasan" phone= "0155555"></Person>
+      <Person name="Sumit Hasan" phone= "0166666"></Person>
     </div>
   );
 }
@@ -54,4 +65,12 @@ function InlineCss(){
   )
 }
 
+function Person(props){
+  return (
+    <div className='person'>
+      <h2>Name: {props.name}</h2>
+      <h3>Phone: {props.phone}</h3>
+    </div>
+  )
+}
 export default App;

@@ -44,3 +44,10 @@
   border: 3px solid purple;
   border-radius: 20px;
 }
+.person{
+  color: cornflowerblue;
+  background-color: paleturquoise;
+  border: 3px solid lawngreen;
+  border-radius: 20px;
+  margin: 15px;
+}
