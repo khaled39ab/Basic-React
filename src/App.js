@@ -27,7 +27,6 @@ function App() {
       <InlineCss></InlineCss>
 
       <h1 style={{backgroundColor:'red'}}>-</h1>
-
       <h1 style={{color:'purple', fontSize:'34px'}}>Dynamic data to components</h1>
 
       <Person name="Amit Hasan" phone= "0177777"></Person>
@@ -37,22 +36,24 @@ function App() {
       <Person name="Sumit Hasan" phone= "0166666"></Person>
 
       <h1 style={{backgroundColor:'red'}}>-</h1>
-
       <h1 style={{color:'purple', fontSize:'34px'}}>Multiple components from an array of objects</h1>
 
       <Students></Students>
 
       <h1 style={{backgroundColor:'red'}}>-</h1>
-
       <h1 style={{color:'purple', fontSize:'34px'}}>Learning State</h1>
 
       <Counter></Counter>
 
       <h1 style={{backgroundColor:'red'}}>-</h1>
-
-      <h1 style={{color:'purple', fontSize:'34px'}}>Learning State</h1>
+      <h1 style={{color:'purple', fontSize:'34px'}}>Call API</h1>
 
       <ExternalUsers></ExternalUsers>
+
+      <h1 style={{backgroundColor:'red'}}>-</h1>
+      <h1 style={{color:'purple', fontSize:'34px'}}>Call another API</h1>
+
+      <UserComments></UserComments>
     </div>
   );
 }
@@ -156,6 +157,32 @@ function User(props){
     <div style={{color:'red', backgroundColor:'cyan', border:'2px solid purple', margin:'15px'}}>
       <h2>Name: {props.name}</h2>
       <h2>Email: {props.email}</h2>
+    </div>
+  )
+}
+
+//--------------  Another API call useEffect integrate state  -------------
+function UserComments(){
+  const [comments, setComments] = useState([]);
+  useEffect( ()=>{
+    fetch('https://jsonplaceholder.typicode.com/comments')
+    .then(res => res.json())
+    .then(data=> setComments(data))
+  },[])
+  return(
+    <div>
+      <h2>User Comments</h2>
+      {
+        comments.map(comment=><Comment name={comment.name} body={comment.body}></Comment>)
+      }
+    </div>
+  )
+}
+function Comment(props){
+  return(
+    <div style={{color:'red', backgroundColor:'cyan', border:'2px solid purple', margin:'15px'}}>
+      <h2>Name: {props.name}</h2>
+      <h4>Comment: {props.body}</h4>
     </div>
   )
 }
