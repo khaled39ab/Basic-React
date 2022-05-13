@@ -1,5 +1,5 @@
 // import logo from './logo.svg';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 
 const internal = {
@@ -48,6 +48,11 @@ function App() {
 
       <Counter></Counter>
 
+      <h1 style={{backgroundColor:'red'}}>-</h1>
+
+      <h1 style={{color:'purple', fontSize:'34px'}}>Learning State</h1>
+
+      <ExternalUsers></ExternalUsers>
     </div>
   );
 }
@@ -79,6 +84,7 @@ function InlineCss(){
   )
 }
 
+//-----------------------  dynamic data to component --------------------
 function Person(props){
   return (
     <div className='person'>
@@ -88,6 +94,7 @@ function Person(props){
   )
 }
 
+//----------------------  multiple data from array of obj -------------------------
 function Students(){
   const studentsID = [14, 51, 1, 3, 23, 47, 9, 65];
   const studentsInfo = [
@@ -108,6 +115,7 @@ function Students(){
   )
 }
 
+//------------------------------ State -------------------------------
 function Counter(){
   const [count, setCount] = useState(0);
   // const increaseCount = () =>{
@@ -121,6 +129,33 @@ function Counter(){
       <h3>Count: {count}</h3>
       <button onClick={increaseCount}>Increase</button>
       <button onClick={decreaseCount}>Decrease</button>
+    </div>
+  )
+}
+
+//--------------  Load dynamic data, API call useEffect integrate state  -------------
+function ExternalUsers(){
+  const [users, setUsers] = useState([]);
+  useEffect( ()=>{
+    fetch('https://jsonplaceholder.typicode.com/users')
+    .then(res => res.json())
+    .then(data => setUsers(data))
+  },[])
+  return(
+    <div>
+      <h2>External Users</h2>
+      {
+        users.map(user=> <User name={user.name} email= {user.email}></User>)
+      }
+    </div>
+  )
+}
+
+function User(props){
+  return(
+    <div style={{color:'red', backgroundColor:'cyan', border:'2px solid purple', margin:'15px'}}>
+      <h2>Name: {props.name}</h2>
+      <h2>Email: {props.email}</h2>
     </div>
   )
 }
