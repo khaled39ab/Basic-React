@@ -3,7 +3,7 @@ import './App.css';
 
 const internal = {
   color: "purple",
-  backgroundColor: "cyan",
+  // backgroundColor: "cyan",
   border: '3px solid red',
   borderRadius: '20px',
   padding: '10px',
@@ -34,6 +34,12 @@ function App() {
       <Person name="Rabbil Hasan" phone= "0199999"></Person>
       <Person name="Sadik Hasan" phone= "0155555"></Person>
       <Person name="Sumit Hasan" phone= "0166666"></Person>
+
+      <h1 style={{backgroundColor:'red'}}>-</h1>
+
+      <h1 style={{color:'purple', fontSize:'34px'}}>Multiple components from an array of objects</h1>
+
+      <Students></Students>
     </div>
   );
 }
@@ -58,9 +64,9 @@ function InternalCss(){
 
 function InlineCss(){
   return (
-    <div>
-      <h3 style={{color:'red', backgroundColor:'gray', padding:'5px'}}>Inline Css</h3>
-      <p style={{color:'white', backgroundColor:'gray', padding:'5px'}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, ut molestias. Magni illum assumenda fugiat ipsa dolor? Fuga iure, mollitia quidem animi reiciendis, blanditiis recusandae ratione repellat quam quaerat debitis?</p>
+    <div style={{border:'3px solid magenta'}}>
+      <h3 style={{color:'red', padding:'5px'}}>Inline Css</h3>
+      <p style={{color:'gray', padding:'5px'}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, ut molestias. Magni illum assumenda fugiat ipsa dolor? Fuga iure, mollitia quidem animi reiciendis, blanditiis recusandae ratione repellat quam quaerat debitis?</p>
     </div>
   )
 }
@@ -73,4 +79,25 @@ function Person(props){
     </div>
   )
 }
+
+function Students(){
+  const studentsID = [14, 51, 1, 3, 23, 47, 9, 65];
+  const studentsInfo = [
+    { name: 'Jamal', id: 45},
+    { name: 'Sakib', id: 12},
+    { name: 'Kamal', id: 16},
+    { name: 'Josim', id: 32}
+  ]
+  return(
+    <div className='person'>
+      {
+        studentsID.map(studentId =>  studentId)
+      }
+      {
+        studentsInfo.map(studentInfo => <Person name={studentInfo.name} phone={studentInfo.id}></Person>)
+      }
+    </div>
+  )
+}
+
 export default App;

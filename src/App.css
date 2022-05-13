@@ -40,13 +40,13 @@
 
 .external{
   color: cadetblue;
-  background-color: rgb(247, 203, 187);
+  /* background-color: rgb(247, 203, 187); */
   border: 3px solid purple;
   border-radius: 20px;
 }
 .person{
   color: cornflowerblue;
-  background-color: paleturquoise;
+  /* background-color: paleturquoise; */
   border: 3px solid lawngreen;
   border-radius: 20px;
   margin: 15px;
