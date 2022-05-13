@@ -1,4 +1,5 @@
 // import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
 const internal = {
@@ -40,6 +41,13 @@ function App() {
       <h1 style={{color:'purple', fontSize:'34px'}}>Multiple components from an array of objects</h1>
 
       <Students></Students>
+
+      <h1 style={{backgroundColor:'red'}}>-</h1>
+
+      <h1 style={{color:'purple', fontSize:'34px'}}>Learning State</h1>
+
+      <Counter></Counter>
+
     </div>
   );
 }
@@ -96,6 +104,23 @@ function Students(){
       {
         studentsInfo.map(studentInfo => <Person name={studentInfo.name} phone={studentInfo.id}></Person>)
       }
+    </div>
+  )
+}
+
+function Counter(){
+  const [count, setCount] = useState(0);
+  // const increaseCount = () =>{
+  //   const newCount = count + 1;
+  //   setCount(newCount);
+  // }
+  const increaseCount = () =>setCount(count + 1);
+  const decreaseCount = () => setCount(count - 1);
+  return (
+    <div>
+      <h3>Count: {count}</h3>
+      <button onClick={increaseCount}>Increase</button>
+      <button onClick={decreaseCount}>Decrease</button>
     </div>
   )
 }
